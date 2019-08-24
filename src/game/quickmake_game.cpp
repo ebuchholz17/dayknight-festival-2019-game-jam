@@ -316,8 +316,9 @@ extern "C" void updateGame (game_input *input, game_memory *gameMemory, render_c
 
         initLetterCoords();
 
-        initBlockGame(&gameState->memory, &gameState->blockGame);
+        //initBlockGame(&gameState->memory, &gameState->blockGame);
         //initPianoGame(&gameState->pianoGame);
+        initFishGame(&gameState->memory, &gameState->fishGame);
     }
     // general purpose temporary storage
     gameState->tempMemory = {};
@@ -369,8 +370,9 @@ extern "C" void updateGame (game_input *input, game_memory *gameMemory, render_c
     //visualizationCommand->t = gameState->visualizationT;
 
     pushSpriteTransform(&spriteList, gameOrigin, gameScale);
-    updateBlockGame(&gameState->memory, &gameState->tempMemory, &gameState->assets, input, &gameState->blockGame, &spriteList);
+    //updateBlockGame(&gameState->memory, &gameState->tempMemory, &gameState->assets, input, &gameState->blockGame, &spriteList);
     //updatePianoGame(&gameState->sounds, &gameState->assets, input, &gameState->pianoGame, &spriteList);
+    updateFishGame(&gameState->memory, &gameState->tempMemory, &gameState->assets, input, &gameState->fishGame, &spriteList);
     popSpriteMatrix(&spriteList);
 
     render_command_sprite_list *spriteListCommand = 

@@ -12,8 +12,9 @@
 #include "quickmake_assets.cpp"
 #include "quickmake_sprites.cpp"
 #include "quickmake_audio.cpp"
-#include "block_game.cpp"
+//#include "block_game.cpp"
 //#include "piano_game.cpp"
+#include "fish_game.cpp"
 
 struct game_state {
     memory_arena memory;
@@ -24,7 +25,8 @@ struct game_state {
 
     float visualizationT;
     //piano_game pianoGame;
-    block_game blockGame;
+    //block_game blockGame;
+    fish_game fishGame;
 
     game_sounds sounds;
 

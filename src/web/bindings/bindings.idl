@@ -1,0 +1,240 @@
+interface matrix3x3 {
+    attribute float[] m;
+};
+
+interface matrix4x4 {
+    attribute float[] m;
+};
+
+interface vector2 {
+    attribute float x;
+    attribute float y;
+    attribute float[] c;
+};
+
+interface vector3 {
+    attribute float x;
+    attribute float y;
+    attribute float z;
+    attribute float r;
+    attribute float g;
+    attribute float b;
+    attribute float[] c;
+};
+
+interface vector4 {
+    attribute float x;
+    attribute float y;
+    attribute float z;
+    attribute float w;
+    attribute float r;
+    attribute float g;
+    attribute float b;
+    attribute float a;
+    attribute float[] c;
+};
+
+// TODO(ebuchholz): double check all of this quaternion stuff, it's ported from nfl thrower 
+// typescript code
+interface quaternion {
+    attribute float w;
+    attribute float x;
+    attribute float y;
+    attribute float z;
+};
+
+interface aabb {
+    [Value] attribute vector3 min;
+    [Value] attribute vector3 max;
+};
+
+interface sphere {
+    [Value] attribute vector3 pos;
+    attribute float radius;
+};
+
+interface plane {
+    [Value] attribute vector3 normal;
+    attribute float distance;
+};
+
+interface triangle {
+    [Value] attribute vector3 p0;
+    [Value] attribute vector3 p1;
+    [Value] attribute vector3 p2;
+};
+
+interface line {
+    [Value] attribute vector3 a;
+    [Value] attribute vector3 b;
+};
+
+interface memory_arena {
+    attribute VoidPtr base;
+    attribute unsigned long size;
+    attribute unsigned long capacity;
+};
+
+enum asset_type {
+    "ASSET_TYPE_OBJ",
+    "ASSET_TYPE_BMP",
+    "ASSET_TYPE_ATLAS"
+};
+
+interface asset_to_load {
+    attribute DOMString path;
+    attribute asset_type type;
+    attribute long key;
+    attribute long secondKey;
+};
+
+interface asset_list {
+    attribute long numAssetsToLoad;
+    attribute long maxAssetsToLoad;
+    attribute asset_to_load assetsToLoad;
+};
+
+interface float_mesh_attribute {
+    attribute VoidPtr values;
+    attribute long count;
+};
+
+interface int_mesh_attribute {
+    attribute VoidPtr values;
+    attribute long count;
+};
+
+interface loaded_mesh_asset {
+    attribute long key;
+    [Value] attribute float_mesh_attribute positions;
+    [Value] attribute float_mesh_attribute texCoords;
+    [Value] attribute float_mesh_attribute normals;
+    [Value] attribute int_mesh_attribute indices;
+};
+
+interface loaded_texture_asset {
+    attribute long key;
+    attribute long width;
+    attribute long height;
+    attribute VoidPtr pixels; 
+};
+
+interface loaded_atlas_asset {
+    attribute long key;
+    attribute long width;
+    attribute long height;
+    attribute VoidPtr pixels; 
+};
+
+enum render_command_type {
+    "RENDER_COMMAND_MODEL",
+    "RENDER_COMMAND_LINES",
+    "RENDER_COMMAND_SPRITE",
+    "RENDER_COMMAND_SPRITE_LIST",
+    "RENDER_COMMAND_SET_CAMERA",
+    "RENDER_COMMAND_BACKGROUND_VISUALIZATION"
+};
+
+interface render_command_header{
+    attribute render_command_type type;
+};
+
+interface render_command_model {
+    attribute long meshKey;
+    attribute long textureKey;
+    [Value] attribute matrix4x4 modelMatrix;
+};
+
+interface render_command_lines {
+    attribute line lines;
+    attribute long numLines;
+};
+
+interface render_command_sprite {
+    attribute long textureKey;
+    attribute float x;
+    attribute float y;
+    attribute float width;
+    attribute float height;
+};
+
+interface render_sprite {
+    [Value] attribute vector2[] pos;
+    [Value] attribute vector2[] texCoord;
+    [Value] attribute vector4[] color;
+
+    attribute long textureKey;
+};
+
+interface render_command_sprite_list {
+    attribute render_sprite sprites;
+    attribute long numSprites;
+};
+
+interface render_command_set_camera {
+    [Value] attribute matrix4x4 viewMatrix;
+    [Value] attribute matrix4x4 projMatrix;
+};
+
+interface render_command_background_visualization {
+    attribute float t;
+};
+
+interface render_command_list {
+    attribute long windowWidth;
+    attribute long windowHeight;
+    [Value] attribute memory_arena memory;
+};
+
+interface input_key {
+    attribute boolean down;
+    attribute boolean justPressed;
+};
+
+interface game_input {
+    [Value] attribute input_key upKey;
+    [Value] attribute input_key downKey;
+    [Value] attribute input_key leftKey;
+    [Value] attribute input_key rightKey;
+
+    [Value] attribute input_key aKey;
+    [Value] attribute input_key sKey;
+    [Value] attribute input_key dKey;
+    [Value] attribute input_key fKey;
+    [Value] attribute input_key gKey;
+    [Value] attribute input_key hKey;
+    [Value] attribute input_key jKey;
+    [Value] attribute input_key kKey;
+    [Value] attribute input_key wKey;
+    [Value] attribute input_key eKey;
+    [Value] attribute input_key tKey;
+    [Value] attribute input_key yKey;
+    [Value] attribute input_key uKey;
+
+    attribute boolean pointerDown;
+    attribute boolean pointerJustDown;
+    attribute long pointerX;
+    attribute long pointerY;
+
+    attribute boolean pointer2Down;
+    attribute boolean pointer2JustDown;
+    attribute long pointer2X;
+    attribute long pointer2Y;
+};
+
+interface sound_sample {
+    attribute float value;
+};
+
+interface game_sound_output {
+    attribute long samplesPerSecond;
+    attribute long sampleCount;
+    attribute sound_sample samples;
+};
+
+interface game_memory {
+    attribute VoidPtr memory;
+    attribute unsigned long memoryCapacity;
+    attribute VoidPtr tempMemory;
+    attribute unsigned long tempMemoryCapacity;
+};

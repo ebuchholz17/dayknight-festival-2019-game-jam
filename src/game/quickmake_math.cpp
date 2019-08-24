@@ -472,6 +472,18 @@ inline vector2 operator* (matrix3x3 m, vector2 v){
     return result;
 }
 
+inline float lengthSquared (vector2 a) {
+    return dotProduct(a, a);
+}
+
+inline float length (vector2 a) {
+    return sqrtf(lengthSquared(a));
+}
+
+inline vector2 normalize (vector2 a) {
+    return a * (1.0f / length(a));
+}
+
 inline vector2 transformPoint (matrix3x3 m, vector2 v, float* z){
     vector2 result;
 

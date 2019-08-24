@@ -263,6 +263,8 @@ extern "C" void getGameAssetList (asset_list *assetList) {
 
     pushAsset(assetList, "assets/textures/font.bmp", ASSET_TYPE_BMP, TEXTURE_KEY_FONT);
     pushAsset(assetList, "assets/textures/atlas.txt", ASSET_TYPE_ATLAS, ATLAS_KEY_GAME, TEXTURE_KEY_GAME_ATLAS);
+    pushAsset(assetList, "assets/textures/bullet.bmp", ASSET_TYPE_BMP, TEXTURE_KEY_BULLET);
+    pushAsset(assetList, "assets/textures/player_hurt.bmp", ASSET_TYPE_BMP, TEXTURE_KEY_PLAYER_HURT);
 }
 
 extern "C" void parseGameAsset (void *assetData, void *secondAssetData, asset_type type, int key, int secondKey,

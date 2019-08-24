@@ -491,11 +491,21 @@ WebPlatform.prototype = {
             this.input.keyJustPressed[keyName] = true; 
         }
         this.input.keyDown[keyName] = true;
+        if (keyName == "arrowup" || keyName == "arrowdown" || 
+            keyName == "arrowleft" || keyName == "arrowright") 
+        {
+            key.preventDefault();
+        }
     },
 
     onKeyUp :function (key) {
         var keyName = key.key.toLowerCase();
         this.input.keyDown[keyName] = false;
+        if (keyName == "arrowup" || keyName == "arrowdown" || 
+            keyName == "arrowleft" || keyName == "arrowright") 
+        {
+            key.preventDefault();
+        }
     },
 
     onTouchStart: function (e) {

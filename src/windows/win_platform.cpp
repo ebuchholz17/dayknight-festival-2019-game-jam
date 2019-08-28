@@ -132,6 +132,18 @@ static void processWindowsMessages (HWND window, game_input *input, render_comma
                     }
                     input->aKey.down = keyDown;
                 }
+                else if (keyCode == 'Z') {
+                    if (!input->zKey.down && keyDown) {
+                        input->zKey.justPressed = true;
+                    }
+                    input->zKey.down = keyDown;
+                }
+                else if (keyCode == 'X') {
+                    if (!input->xKey.down && keyDown) {
+                        input->xKey.justPressed = true;
+                    }
+                    input->xKey.down = keyDown;
+                }
                 else if (keyCode == VK_UP) {
                     if (!input->upKey.down && keyDown) {
                         input->upKey.justPressed = true;
@@ -409,6 +421,8 @@ int WINAPI WinMain (HINSTANCE instance, HINSTANCE prevInstance, LPSTR commandLin
                 input.tKey.justPressed = false;
                 input.yKey.justPressed = false;
                 input.uKey.justPressed = false;
+                input.zKey.justPressed = false;
+                input.xKey.justPressed = false;
                 input.upKey.justPressed = false;
                 input.downKey.justPressed = false;
                 input.leftKey.justPressed = false;

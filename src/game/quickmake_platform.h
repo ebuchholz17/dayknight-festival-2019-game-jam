@@ -153,6 +153,9 @@ struct game_input {
     input_key yKey;
     input_key uKey;
 
+    input_key zKey;
+    input_key xKey;
+
     bool pointerDown;
     bool pointerJustDown;
     int pointerX;

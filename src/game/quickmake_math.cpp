@@ -969,6 +969,26 @@ bool aabbIntersection (aabb a, aabb b) {
     return true;
 }
 
+rectangle unionRectangle (rectangle a, rectangle b) {
+    rectangle result;
+
+    result.min.x = a.min.x < b.min.x ? a.min.x : b.min.x;
+    result.min.y = a.min.y < b.min.y ? a.min.y : b.min.y;
+
+    result.max.x = a.max.x > b.max.x ? a.max.x : b.max.x;
+    result.max.y = a.max.y > b.max.y ? a.max.y : b.max.y;
+
+    return result;
+}
+
+bool rectangleIntersection (rectangle a, rectangle b) {
+    if (a.max.x < b.min.x) { return false; }
+    if (a.min.x > b.max.x) { return false; }
+    if (a.max.y < b.min.y) { return false; }
+    if (a.min.y > b.max.y) { return false; }
+    return true;
+}
+
 float aabbSurfaceArea (aabb a) {
     float width = a.max.x - a.min.x;
     float depth = a.max.z - a.min.z;

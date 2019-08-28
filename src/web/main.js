@@ -409,6 +409,10 @@ WebPlatform.prototype = {
         this.gameInput.yKey.justPressed = this.input.keyJustPressed["y"];
         this.gameInput.uKey.down = this.input.keyDown["u"];
         this.gameInput.uKey.justPressed = this.input.keyJustPressed["u"];
+        this.gameInput.zKey.down = this.input.keyDown["z"];
+        this.gameInput.zKey.justPressed = this.input.keyJustPressed["z"];
+        this.gameInput.xKey.down = this.input.keyDown["x"];
+        this.gameInput.xKey.justPressed = this.input.keyJustPressed["x"];
 
         this.gameInput.pointerDown = this.input.pointerDown;
         this.gameInput.pointerJustDown = this.input.pointerJustDown;

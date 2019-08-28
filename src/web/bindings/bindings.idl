@@ -211,6 +211,9 @@ interface game_input {
     [Value] attribute input_key yKey;
     [Value] attribute input_key uKey;
 
+    [Value] attribute input_key zKey;
+    [Value] attribute input_key xKey;
+
     attribute boolean pointerDown;
     attribute boolean pointerJustDown;
     attribute long pointerX;

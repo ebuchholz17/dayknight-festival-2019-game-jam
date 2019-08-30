@@ -13,21 +13,8 @@ struct mesh_asset {
 
 // TODO(ebuchholz): download texture packer and put assets into texture atlas
 enum texture_key {
-    TEXTURE_KEY_GOLFMAN,
     TEXTURE_KEY_FONT,
-    TEXTURE_KEY_GAME_ATLAS,
-    TEXTURE_KEY_BG,
-    TEXTURE_KEY_BULLET,
-    TEXTURE_KEY_PLAYER_BULLET,
-    TEXTURE_KEY_PLAYER_HURT,
-    TEXTURE_KEY_BASS,
-    TEXTURE_KEY_BOSS_HURT,
-    TEXTURE_KEY_WHITE_BOX,
-    TEXTURE_KEY_YELLOW_BOX,
-    TEXTURE_KEY_GREEN_BOX,
-    TEXTURE_KEY_FISH_METER,
-    TEXTURE_KEY_METER_FISH,
-    TEXTURE_KEY_LINE
+    TEXTURE_KEY_GAME_ATLAS
 };
 
 struct texture_asset {

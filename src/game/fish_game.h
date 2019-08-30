@@ -1,7 +1,7 @@
 #ifndef FISH_GAME_H
 #define FISH_GAME_H
 
-#define MAX_NUM_ENEMY_BULLETS 1000
+#define MAX_NUM_ENEMY_BULLETS 5000
 
 #define BULLET_SPEED 150.0f
 #define BULLET_LIFETIME 5.0f
@@ -37,11 +37,41 @@ struct bullet_cell_grid{
     int numCols;
 };
 
+enum toy_type {
+    TOY_TYPE_NINJA,
+    TOY_TYPE_STICKY_HAND,
+    TOY_TYPE_BOUNCY_BALL
+};
+
+enum sticky_hand_state {
+    STICKY_HAND_STATE_REACHING,
+    STICKY_HAND_STATE_SLAPPING,
+    STICKY_HAND_STATE_RETURNING
+};
+
 struct toy_player {
     vector2 pos;
+    vector2 velocity;
+
+    toy_type type;
+
+    float rotation;
+    float dRotation;
+    float bounceTimer;
+    bool bouncedOnBoss;
+    bool bouncing;
+
+    vector2 handPos;
+    bool slapping;
+    bool slapped;
 
     bool shooting;
     float shootingTimer;
+
+    float stickyHandTimer;
+    sticky_hand_state stickyHandState;
+    vector2 stickyHandStartPos;
+    vector2 stickyHandTargetPos;
 
     int hitPoints;
 
@@ -57,10 +87,18 @@ enum boss_type {
     BOSS_TYPE_COUNT
 };
 
+enum boss_attack {
+    BOSS_ATTACK_1,
+    BOSS_ATTACK_2,
+    BOSS_ATTACK_3
+};
+
 struct fish_boss {
     vector2 pos;
-    float sineVal;
+    float attackTimer;
     float shootingTimer = 0.0f;
+
+    boss_attack currentAttack;
 
     bool hurt;
     float hurtTimer;
@@ -73,9 +111,13 @@ struct fish_boss {
 
 enum fish_game_state {
     FISH_GAME_STATE_TITLE_SCREEN,
+    FISH_GAME_STATE_CAPSULE_MACHINE,
+    FISH_GAME_STATE_SCENE,
+    FISH_GAME_STATE_OPEN_UP,
     FISH_GAME_STATE_BULLET_HELL,
     FISH_GAME_STATE_TRANSITION,
-    FISH_GAME_STATE_FISHING
+    FISH_GAME_STATE_FISHING,
+    FISH_GAME_STATE_END_SCREEN
 };
 
 enum fish_game_transition_state {
@@ -94,6 +136,24 @@ enum fish_shake_direction {
     FISH_SHAKE_DIRECTION_RIGHT
 };
 
+enum fish_game_open_up_state {
+    FISH_GAME_OPEN_UP_STATE_DROP_LURE,
+    FISH_GAME_OPEN_UP_STATE_REVEAL_LURE,
+    FISH_GAME_OPEN_UP_STATE_BOSS_ENTER
+};
+
+enum fish_game_end_screen_state {
+    FISH_GAME_END_SCREEN_STATE_FADE_OUT,
+    FISH_GAME_END_SCREEN_STATE_SHOWING_RESULTS
+};
+
+enum fish_game_capsule_machine_state {
+    FISH_GAME_CAPSULE_MACHINE_STATE_WAITING,
+    FISH_GAME_CAPSULE_MACHINE_STATE_TURNING,
+    FISH_GAME_CAPSULE_MACHINE_STATE_FALLING,
+    FISH_GAME_CAPSULE_MACHINE_STATE_WAITING_2,
+};
+
 struct fish_game {
     fish_bullet bullets[MAX_NUM_ENEMY_BULLETS];
     int numActiveBullets = 0;
@@ -108,6 +168,7 @@ struct fish_game {
     toy_player player;
     fish_boss boss;
     boss_type bossType;
+    float chargeTargetY;
 
     float meterSineVal;
     float meterChunkY;
@@ -124,8 +185,18 @@ struct fish_game {
     float struggleTimer;
     bool firstStruggle;
 
+    bool debug = false;
+
+    float fadeOutProgress;
+
     float shakeTimer;
     fish_shake_direction shakeDirection;
+
+    fish_game_fishing_state fishingState;
+    fish_game_end_screen_state endScreenState;
+    fish_game_open_up_state openUpState;
+    fish_game_capsule_machine_state capsuleMachineState;
+    bool won;
 };
 
 #endif

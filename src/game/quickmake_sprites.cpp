@@ -417,7 +417,7 @@ void addText (float x, float y, char *text, game_assets *assets, texture_key fon
 
         if (letter == '\n') {
             xOffset = 0.0f;
-            yOffset += 8.0f;
+            yOffset += 10.0f;
             ++currentLetter;
         }
         else {

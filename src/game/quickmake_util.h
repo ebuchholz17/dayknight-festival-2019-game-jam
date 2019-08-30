@@ -1,6 +1,9 @@
 #ifndef QUICKMAKE_UTIL_H
 #define QUICKMAKE_UTIL_H
 
+// TODO(ebuchholz): get time from platform?
+#include <time.h>
+
 void *allocateMemorySize (memory_arena *memory, unsigned int size) {
     assert(memory->size + size < memory->capacity);
     void *result = (char *)memory->base + memory->size;
@@ -209,6 +212,9 @@ unsigned int findLeastSignificantBit (unsigned int value, bool *found) {
 
 static unsigned int rngSeed;
 
+inline unsigned long long getTime () {
+    return time(0);
+}
 inline void setRNGSeed (unsigned int seed) {
     rngSeed = seed;
 }

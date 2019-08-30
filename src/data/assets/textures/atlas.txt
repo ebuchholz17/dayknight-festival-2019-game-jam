@@ -1,110 +1,250 @@
 atlas.png
-size: 256, 512
+size: 1024, 1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-black_key
+bass
   rotate: false
-  xy: 3, 3
-  size: 24, 129
-  orig: 24, 129
+  xy: 2, 285
+  size: 328, 216
+  orig: 328, 216
   offset: 0, 0
   index: -1
-black_key_pressed
+bg
   rotate: false
-  xy: 31, 3
-  size: 24, 129
-  orig: 24, 129
+  xy: 2, 503
+  size: 384, 216
+  orig: 384, 216
   offset: 0, 0
   index: -1
-block_blink
+black_screen
   rotate: false
-  xy: 59, 3
+  xy: 332, 285
+  size: 384, 216
+  orig: 384, 216
+  offset: 0, 0
+  index: -1
+bouncy_ball
+  rotate: false
+  xy: 197, 2
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+bullet
+  rotate: false
+  xy: 213, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-blue_tile
+bullet
   rotate: false
-  xy: 79, 3
+  xy: 231, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+capsule_bottom_blue
+  rotate: false
+  xy: 40, 2
+  size: 20, 7
+  orig: 20, 7
+  offset: 0, 0
+  index: -1
+capsule_bottom_green
+  rotate: false
+  xy: 18, 2
+  size: 20, 7
+  orig: 20, 7
+  offset: 0, 0
+  index: -1
+capsule_bottom_red
+  rotate: false
+  xy: 62, 2
+  size: 20, 7
+  orig: 20, 7
+  offset: 0, 0
+  index: -1
+capsule_machine_bottom
+  rotate: false
+  xy: 355, 2
+  size: 72, 31
+  orig: 72, 31
+  offset: 0, 0
+  index: -1
+capsule_machine_front
+  rotate: false
+  xy: 758, 68
+  size: 114, 215
+  orig: 114, 215
+  offset: 0, 0
+  index: -1
+capsule_machine_handle
+  rotate: false
+  xy: 157, 2
+  size: 38, 12
+  orig: 38, 12
+  offset: 0, 0
+  index: -1
+capsule_top
+  rotate: false
+  xy: 296, 2
+  size: 20, 16
+  orig: 20, 16
+  offset: 0, 0
+  index: -1
+end_line
+  rotate: false
+  xy: 755, 68
+  size: 1, 209
+  orig: 1, 209
+  offset: 0, 0
+  index: -1
+fish_meter
+  rotate: false
+  xy: 774, 503
+  size: 32, 256
+  orig: 32, 256
+  offset: 0, 0
+  index: -1
+font
+  rotate: false
+  xy: 463, 2
+  size: 256, 64
+  orig: 256, 64
+  offset: 0, 0
+  index: -1
+golfman
+  rotate: false
+  xy: 429, 2
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
-boss
+green_box
   rotate: false
-  xy: 115, 3
-  size: 112, 78
-  orig: 112, 78
+  xy: 114, 2
+  size: 8, 8
+  orig: 8, 8
   offset: 0, 0
   index: -1
-cyan_tile
+honda
   rotate: false
-  xy: 3, 136
-  size: 32, 32
-  orig: 32, 32
+  xy: 2, 68
+  size: 604, 177
+  orig: 604, 177
   offset: 0, 0
   index: -1
-green_tile
+line
   rotate: false
-  xy: 39, 136
-  size: 32, 32
-  orig: 32, 32
+  xy: 608, 68
+  size: 145, 208
+  orig: 145, 208
   offset: 0, 0
   index: -1
-magenta_tile
+meter_fish
   rotate: false
-  xy: 75, 136
-  size: 32, 32
-  orig: 32, 32
+  xy: 104, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+ninja
+  rotate: false
+  xy: 249, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+ninja_star
+  rotate: false
+  xy: 145, 2
+  size: 10, 10
+  orig: 10, 10
   offset: 0, 0
   index: -1
 player
   rotate: false
-  xy: 111, 136
+  xy: 267, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-red_tile
+player_bullet
   rotate: false
-  xy: 131, 136
-  size: 32, 32
-  orig: 32, 32
+  xy: 84, 2
+  size: 8, 8
+  orig: 8, 8
   offset: 0, 0
   index: -1
-sheep
+player_bullet
   rotate: false
-  xy: 167, 136
-  size: 32, 32
-  orig: 32, 32
+  xy: 94, 2
+  size: 8, 8
+  orig: 8, 8
   offset: 0, 0
   index: -1
-tile_backing
+player_hurt
   rotate: false
-  xy: 203, 136
+  xy: 318, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-white_key
+scene
   rotate: false
-  xy: 3, 172
-  size: 48, 216
-  orig: 48, 216
+  xy: 388, 503
+  size: 384, 216
+  orig: 384, 216
   offset: 0, 0
   index: -1
-white_key_pressed
+sticky_hand
   rotate: false
-  xy: 55, 172
-  size: 48, 216
-  orig: 48, 216
+  xy: 336, 2
+  size: 17, 17
+  orig: 17, 17
   offset: 0, 0
   index: -1
-yellow_tile
+sticky_hand_arm
   rotate: false
-  xy: 107, 172
-  size: 32, 32
-  orig: 32, 32
+  xy: 2, 2
+  size: 2, 2
+  orig: 2, 2
+  offset: 0, 0
+  index: -1
+sticky_hand_slap
+  rotate: false
+  xy: 285, 2
+  size: 9, 16
+  orig: 9, 16
+  offset: 0, 0
+  index: -1
+sticky_handle
+  rotate: false
+  xy: 134, 2
+  size: 9, 9
+  orig: 9, 9
+  offset: 0, 0
+  index: -1
+white_box
+  rotate: false
+  xy: 12, 2
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+white_box
+  rotate: false
+  xy: 6, 2
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+yellow_box
+  rotate: false
+  xy: 124, 2
+  size: 8, 8
+  orig: 8, 8
   offset: 0, 0
   index: -1
